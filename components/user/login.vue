@@ -1,6 +1,6 @@
 <template>
     <v-card class="cardLogin">
-        <v-card-title class="title">Bienvenudos</v-card-title>
+        <v-card-title class="title">Iniciar Sesión</v-card-title>
         <v-card-text>
             <v-row justify="center">
                 <v-col cols="4" align-self="center">
@@ -8,13 +8,13 @@
                 </v-col>
                 <v-col cols="8" align-self="center">
                     <v-form ref="formLogin">
-                <v-text-field label="Correo Electronico" 
-                              placeholder="Correo Electronico"
+                <v-text-field label="Correo Electrónico" 
+                              placeholder="Correo Electrónico"
                               v-model="correoElectronico"
                               :rules="validarCorreo"
                 />
-                <v-text-field label="Password" 
-                              placeholder="Password"
+                <v-text-field label="Contraseña" 
+                              placeholder="Contraseña"
                               v-model="password"
                               :rules="validarPassword"
                 />
@@ -78,7 +78,7 @@ export default {
 
 <style scoped>
 .cardLogin {
-    background-color: #829ff5;
+    background-color: #6d60a5;
     border-radius: 10px;
     width: 500px;
     height: 300px;
@@ -87,13 +87,13 @@ export default {
 .imgLogin {
     width: 100%;
     height: 100%;
-    border-color: #0d449e;
+    border-color: #362f5a;
     border-style: dotted;
     border-radius: 20px;
 }
 
 .btnLogin {
-    background-color: #0d449e  !important;
+    background-color: #362f5a  !important;
     color: white !important;
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
@@ -102,7 +102,10 @@ export default {
 .title {
     font-size: 30px;
     justify-content: center;
-    color: black;
+    color: white;
     font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
 }
+
 </style>
