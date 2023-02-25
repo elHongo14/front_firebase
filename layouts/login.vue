@@ -9,9 +9,9 @@
 <style scoped>
 .bg {
     background: url('../assets/images/bg.png');
+    background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    width: 100vw;
+    height: 102svh;
 }
 .renglon {
     padding: 150px;
