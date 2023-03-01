@@ -20,20 +20,30 @@
             Acciones realizables:
           </v-list-item-subtitle>
           <v-list-item-subtitle>
-            Inicio de sesión
+            - Inicio de sesión
           </v-list-item-subtitle>
           <v-list-item-subtitle>
-            Muestra de usuarios registrados
+            - Muestra de usuarios registrados
           </v-list-item-subtitle>
           <v-list-item-subtitle>
-            Registro de nuevos usuarios
+            - Registro de nuevos usuarios
+          </v-list-item-subtitle>
+          <v-list-item-subtitle>
+            - Modificación y actualización
+          </v-list-item-subtitle>
+          <v-list-item-subtitle>
+            - Eliminación de usuarios
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
+      <div class="copyright">
+        Luis Enrique Hernández Martínez<br>
+        elHongo14
+      </div>
     </v-navigation-drawer>
 
     <v-app-bar app>
-      <v-toolbar-title>CRUD con Firebase🔥 y Nuxt.js💻 - 🍄</v-toolbar-title>
+      <v-toolbar-title>CRUD con Firebase🔥 y Nuxt.js💻 - 🍄 ÚLTIMA VERSIÓN!!!</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
@@ -41,6 +51,13 @@
     </v-main>
   </v-app>
 </template>
+
+<style>
+.copyright{
+  display: flex;
+  justify-content: center;
+}
+</style>
 
 <script>
   export default {

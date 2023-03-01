@@ -86,9 +86,9 @@
     <v-dialog v-model="openDialogErase" 
               width="500" 
               height="500"
-              persistent>>
+              persistent>
         <v-card>
-            <v-card-title>Borrar Usuario</v-card-title>
+            <v-card-title>Eliminar Usuario</v-card-title>
             <v-card-text>¿Realmente quieres borrar el usuario?</v-card-text>
             <v-card-actions>
                 <v-btn color="red" @click="openDialogErase = false">
@@ -106,7 +106,7 @@
               height="500"
               persistent>
         <v-card>
-            <v-card-title>Datos del Usuario</v-card-title>
+            <v-card-title>Actualizar Datos del Usuario</v-card-title>
             <v-card-text>
                 <v-form ref="formUpdate">
                     <v-text-field 
@@ -122,10 +122,10 @@
                     label="Apellidos">
                     </v-text-field>
                     <v-text-field 
-                    v-model="passwordUpdate"
-                    type="password" 
-                    placeholder="Nueva Contraseña" 
-                    label="Nueva Contraseña">
+                    v-model="numberUpdate"
+                    type="number" 
+                    placeholder="Número telefónico" 
+                    label="Número telefónico">
                     </v-text-field>
                 </v-form>
             </v-card-text>
@@ -189,14 +189,14 @@ export default{
             email: '',
             password: '',
             number: '',
-            idEraseUser: '',
+            emailEraseUser: '',
             openDialogErase: false,
             newemail: '',
             admin: 'esotilin',
             openDialogUpdate: false,
             nameUpdate: '',
             lastnameUpdate: '',
-            passwordUpdate: '',
+            numberUpdate: '',
             datos: {}
         }
     },
@@ -242,7 +242,7 @@ export default{
             await this.$axios.post('/registro', usuarioNuevo, config)
                 .then((res) => {
                     console.log('res',res)
-                    if(res.data.message == 'realizado'){
+                    if(res.data.message === 'realizado'){
                         this.openDialog = false
                         this.loadUsers()
                     }
@@ -260,9 +260,9 @@ export default{
                 }
             }
                 const usuario = {
-                id: this.idEraseUser
+                    email: this.emailEraseUser
             }
-                await this.$axios.post('/eraseusers', usuario, config)
+                await this.$axios.post('/delete', usuario, config)
                     .then((res) => {
                     console.log(res)
                     if(res.data.message === 'Usuario Borrado'){
@@ -276,7 +276,7 @@ export default{
             }  
         },
         dialogUser(item) {
-            this.idEraseUser = item._id
+            this.emailEraseUser = item.email
             this.admin = item.name
             this.openDialogErase = true
         },
@@ -284,7 +284,7 @@ export default{
             this.datos = item
             this.nameUpdate = this.datos.name
             this.lastnameUpdate = this.datos.lastname
-            this.passwordUpdate = this.datos.password
+            this.numberUpdate = this.datos.number
             this.openDialogUpdate = true
         },
         async actualizaUsuario(){
@@ -295,16 +295,17 @@ export default{
                 }
             }
             const usuario = {
-                id: this.datos._id,
+                // id: this.datos._id,
                 name: this.nameUpdate,
                 lastname: this.lastnameUpdate,
-                email: this.datos.email,
-                password: this.passwordUpdate
+                number: this.numberUpdate,
+                email: this.datos.email
+                // password: this.passwordUpdate
             }
-            await this.$axios.post('/user/updateuser', usuario, config)
+            await this.$axios.post('/update', usuario, config)
                 .then((res) => {
                 console.log(res)
-                if(res.data.message === 'Usuario Actualizado'){
+                if(res.data.message === 'actualizado'){
                     this.loadUsers()
                     this.openDialogUpdate = false
                 }
